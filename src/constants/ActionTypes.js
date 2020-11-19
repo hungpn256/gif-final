@@ -1,0 +1,4 @@
+export const FEATCH_PRODUCTS = 'FETCH_PRODUCTS'
+export const LOGIN = 'LOGIN'
+export const REGISTER='REGISTER'
+export const REGISTER_RESET='REGISTER_RESET'

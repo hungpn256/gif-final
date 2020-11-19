@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.mb-10{
+  margin-bottom: 10px;
+}
+.mr-10{
+  margin-right: 10px;
+}
+.active{
+  background-color: antiquewhite !important;
+}
+.product-card{
+  position: relative;
+}
+.like-button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.navbar-brand{
+  font-size: 3.5rem;
+}
+.menu-nav{
+  width: 1400px;
+  max-width: 100%;
+  margin: auto;
+}
