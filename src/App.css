@@ -17,6 +17,28 @@
   }
 }
 
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-6 {
+    width: 48%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  /* For desktop: */
+  .col-3 {
+    width: 23%;
+  }
+}
+.demo {
+  display: inline-block;
+  margin-left: 2% !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -65,13 +87,13 @@
   max-width: 100%;
   margin: auto;
 }
-.navbar{
+.navbar {
   position: relative;
 }
-.btn-menu{
+.btn-menu {
   height: 50px;
   max-height: 100%;
 }
-.product{
+.product {
   margin: 20px 0px;
 }
