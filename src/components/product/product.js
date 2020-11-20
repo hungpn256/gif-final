@@ -11,7 +11,7 @@ class Product extends Component {
               src={url}
               className="img-fluid product-img img-thumbnail"
               alt=""
-              style={{ width: "400px", height: "350px" }}
+              style={{ width: "400px", height: "350px" , objectFit:"contain"}}
             />
           </div>
           <div className="card-footer">
