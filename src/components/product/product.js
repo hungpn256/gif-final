@@ -6,14 +6,14 @@ class Product extends Component {
   render() {
     var { url } = this.props;
     return (
-      <article className="product col-lg-3 col-md-6 mb-r mb-10 ml-10">
-        <div className=" card text-center card-cascade product-card">
+      <article className="product demo col-3 col-s-6  mb-r mb-10">
+        <div className=" card text-center card-cascade product-card ">
           <div className="card-body">
             <img
               src={url}
               className="img-fluid product-img img-thumbnail"
               alt=""
-              style={{ width: "400px", height: "350px" , objectFit:"contain"}}
+              style={{ width: "100%", height: "350px", objectFit: "contain" }}
             />
           </div>
           <div className="card-footer">
