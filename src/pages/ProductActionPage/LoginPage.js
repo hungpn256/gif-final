@@ -9,6 +9,7 @@ class ProductActionPage extends Component {
             id:'',
             txtUserName: '',
             txtPassword:'',
+            loginStatus:''
         }
     }
     onChange = (e)=>{
@@ -35,10 +36,17 @@ class ProductActionPage extends Component {
                 return <Redirect to='/'/>
             }
         }
+        var x = document.getElementsByClassName('login-status')[0];
+        if(x){
+            if(user === false)
+                x.style.display='block';
+            else x.style.display='none'
+        }
         return (  
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <form onSubmit = {this.onSave}>
                     <legend>Login</legend>
+                    <label className='login-status'>Login false, please try again</label>
                     <div className="form-group">
                         <label>UserName:</label>
                         <input type="text" className="form-control" id="userName" placeholder="UserName" 

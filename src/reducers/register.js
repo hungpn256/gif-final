@@ -3,7 +3,7 @@ var initalState = null
 
 const user = (state = initalState,action)=>{
     switch (action.type){
-        case Types.REGISTER:
+        case Types.REGISTER_SUCCESS:
             state=action.payload
             return state
         case Types.REGISTER_RESET:

@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import {connect} from 'react-redux'
 class ProductListPage extends Component {
     // componentDidMount(){
     //     this.props.fetchOnProducts();
@@ -14,11 +14,11 @@ class ProductListPage extends Component {
     }
 }
 
-// const mapStateToProps = state =>{
-//     return {
-//         products :state.products
-//     }
-// }
+const mapStateToProps = state =>{
+    return {
+        user :state.user
+    }
+}
 // const mapDispatchToProps = (dispatch,action)=>{
 //     return{
 //         fetchOnProducts : () =>{
@@ -26,4 +26,4 @@ class ProductListPage extends Component {
 //         }
 //     }
 // }
-export default ProductListPage;
+export default connect(mapStateToProps,null)(ProductListPage);

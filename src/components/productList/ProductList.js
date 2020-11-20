@@ -22,6 +22,7 @@ class ProductList extends Component{
         return <Product 
           key={index}
           url = {product.images.downsized_medium.url}
+          index={index}
         />
       })
     }

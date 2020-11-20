@@ -1,5 +1,7 @@
 import { Component } from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import {connect} from 'react-redux'
+import * as Actions from './../../actions/index'
 class Product extends Component {
   render() {
     var { url } = this.props;
@@ -35,4 +37,16 @@ class Product extends Component {
     );
   }
 }
-export default Product;
+const mapStateToProps = (state)=>{
+    return{
+
+    }
+}
+const mapDispatchToProps =(dispatch,action)=>{
+    return{
+        onPushLikeList:(url)=>{
+            dispatch(Actions.onPushLikeListRequest(url))
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Product);

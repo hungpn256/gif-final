@@ -75,3 +75,7 @@
 .product{
   margin: 20px 0px;
 }
+.login-status{
+  color: red;
+  display: none;
+}

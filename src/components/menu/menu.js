@@ -68,7 +68,8 @@ class Menu extends Component {
     showMenu = (menus) =>{
       var {user} = this.props;
       console.log(user)
-      if(user!==null){
+      console.log(typeof user)
+      if(user !==null && typeof user === 'object'){
         menus.push({
           name:user.user.username,
           to : '/xyz',
