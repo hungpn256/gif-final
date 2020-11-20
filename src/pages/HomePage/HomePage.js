@@ -4,7 +4,11 @@ import ProductList from './../../components/productList/ProductList'
 class HomePage extends Component {
     render(){
         return (
-            <ProductList/>
+            <div className = 'home-page'>
+                <h1>Trang chủ </h1>
+                <ProductList/>
+
+            </div>
         );
     }
 }

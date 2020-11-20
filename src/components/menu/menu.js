@@ -37,7 +37,16 @@ const menus = [
     visitable:false
   }
 ]
+var onLogout =()=>{
+  localStorage.removeItem('user');
+  window.location.reload();
+}
 const MenuLink =({label,to,activeOnlyWhenExact,className}) =>{
+  if(label === 'Log out'){
+    return (
+      <button type="button" className="btn btn-menu" onClick={onLogout}>Logout</button>
+    );
+  }
   return(
     <Route 
       path = {to}
@@ -60,6 +69,13 @@ class Menu extends Component {
       var {user} = this.props;
       console.log(user)
       if(user!==null){
+        menus.push({
+          name:user.user.username,
+          to : '/xyz',
+          exact: true,
+          className:'user',
+          visitable:true
+        })
         menus[3].visitable = true;
         menus[2].visitable =false;
         menus[1].visitable =false;

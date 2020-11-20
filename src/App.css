@@ -61,3 +61,13 @@
   max-width: 100%;
   margin: auto;
 }
+.navbar{
+  position: relative;
+}
+.btn-menu{
+  height: 50px;
+  max-height: 100%;
+}
+.product{
+  margin: 20px 0px;
+}

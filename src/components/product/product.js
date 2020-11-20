@@ -12,7 +12,7 @@ class Product extends Component{
                 <div className="card-footer">                
                     <button type="button" className="btn btn-success like-button">
                         <span>
-                        <i class="far fa-heart"></i>
+                        <i className="far fa-heart"></i>
                         </span>
                     </button>
                 </div>
