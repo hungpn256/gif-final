@@ -72,13 +72,13 @@ export const onPushLikeListRequest=(url)=>{
 }
 export const onPushLikeListSuccess=(payload)=>{
     return{
-        type:Types.PUSH_GIF_ITEM,
+        type:Types.PUSH_GIF_ITEM_SUCCESS,
         payload
     }
 }
 export const onPushLikeListFalse=(payload)=>{
     return{
-        type:Types.PUSH_GIF_ITEM,
+        type:Types.PUSH_GIF_ITEM_FAIL,
         payload
     }
 }

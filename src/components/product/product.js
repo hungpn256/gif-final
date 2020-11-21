@@ -3,6 +3,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import {connect} from 'react-redux'
 import * as Actions from './../../actions/index'
 class Product extends Component {
+    onPushLikeList = (url) =>{
+        console.log(url)
+        this.props.onPushLikeList({
+            favorite:url
+        });
+    }
   render() {
     var { url } = this.props;
     return (
@@ -20,6 +26,7 @@ class Product extends Component {
             <button
               type="button"
               className="btn btn-warning like-button btn-lg"
+              onClick={()=>this.onPushLikeList(url)}
             >
               {/* <span>
                 <i class="far fa-heart"></i>
