@@ -1,14 +1,15 @@
 import { Component } from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import {connect} from 'react-redux'
-import * as Actions from './../../actions/index'
+import ClearIcon from "@material-ui/icons/Clear";
+import { connect } from "react-redux";
+import * as Actions from "./../../actions/index";
 class Product extends Component {
-    onPushLikeList = (url) =>{
-        console.log(url)
-        this.props.onPushLikeList({
-            favorite:url
-        });
-    }
+  onPushLikeList = (url) => {
+    console.log(url);
+    this.props.onPushLikeList({
+      favorite: url,
+    });
+  };
   render() {
     var { url } = this.props;
     return (
@@ -26,17 +27,14 @@ class Product extends Component {
             <button
               type="button"
               className="btn btn-warning like-button btn-lg"
-              onClick={()=>this.onPushLikeList(url)}
+              onClick={() => this.onPushLikeList(url)}
             >
-              {/* <span>
-                <i class="far fa-heart"></i>
-                
-              </span> */}
               <FavoriteIcon
                 fontSize="large"
                 className="favoriteIcon"
                 style={{ color: "red" }}
               />
+              <ClearIcon fontSize="large" />
             </button>
           </div>
         </div>
@@ -44,16 +42,14 @@ class Product extends Component {
     );
   }
 }
-const mapStateToProps = (state)=>{
-    return{
-
-    }
-}
-const mapDispatchToProps =(dispatch,action)=>{
-    return{
-        onPushLikeList:(url)=>{
-            dispatch(Actions.onPushLikeListRequest(url))
-        }
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Product);
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch, action) => {
+  return {
+    onPushLikeList: (url) => {
+      dispatch(Actions.onPushLikeListRequest(url));
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
