@@ -67,6 +67,7 @@ const MenuLink =({label,to,activeOnlyWhenExact,className}) =>{
 class Menu extends Component {
     showMenu = (menus) =>{
       var {user} = this.props;
+      console.log(user)
       if(user !==null && typeof user === 'object'){
         menus.push({
           name:user.user.username,

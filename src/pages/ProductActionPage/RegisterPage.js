@@ -40,10 +40,10 @@ class ProductActionPage extends Component {
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <form onSubmit = {this.onSave}>
-                    <legend>Form title</legend>
+                    <legend>Đăng ký</legend>
                     <div className="form-group">
                         <label>UserName</label>
-                        <input type="text" className="form-control" id="name-register" placeholder="Input field" 
+                        <input type="text" className="form-control" id="name-register" placeholder="UserName" 
                             name = "txtUserName" 
                             value = {txtUserName}
                             onChange = {this.onChange}
@@ -51,7 +51,7 @@ class ProductActionPage extends Component {
                     </div>
                     <div className="form-group">
                         <label>Password:</label>
-                        <input type="password" className="form-control" id="password-register" placeholder="Input field" 
+                        <input type="password" className="form-control" id="password-register" placeholder="Password" 
                             name = 'txtPassword' 
                             value = {txtPassword}
                             onChange = {this.onChange}
@@ -60,7 +60,7 @@ class ProductActionPage extends Component {
                     </div>
                     <div className="form-group">
                         <label>Re-Password:</label>
-                        <input type="password" className="form-control" id="re-password-register" placeholder="Input field" 
+                        <input type="password" className="form-control" id="re-password-register" placeholder="Re-Password" 
                             name = 'txtRePassword' 
                             value = {txtRePassword}
                             onChange = {this.onChange}
