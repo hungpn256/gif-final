@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {Redirect} from 'react-router-dom'
+import {Redirect, Prompt} from 'react-router-dom'
 import * as Actions from './../../actions/index'
 import {connect} from 'react-redux'
 class ProductActionPage extends Component {
@@ -9,7 +9,8 @@ class ProductActionPage extends Component {
             id:'',
             txtUserName: '',
             txtPassword:'',
-            loginStatus:''
+            loginStatus:'',
+            prompt: true
         }
     }
     onChange = (e)=>{
@@ -75,7 +76,9 @@ class ProductActionPage extends Component {
                     </div> */}
                     <button type="submit" className="btn btn-primary">Đăng nhập</button>
                 </form>
-                
+                {/* <Prompt when={this.state.prompt} 
+                    message = {location=>(`location ${location.pathname}`)}
+                /> */}
             </div>
             
         );

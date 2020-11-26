@@ -9,20 +9,24 @@ class ProductList extends Component{
     }
   }
   componentDidMount(){
-    callApiGiphy().then(res=>{
-      this.setState({
-        products:res.data.data
+    let {products}= this.state;
+    if(products.length===0)
+      callApiGiphy().then(res=>{
+        this.setState({
+          products:res.data.data
+        })
       })
-    })
   }
   showProduct=(products)=>{
     var result=null;
+    let {action} = this.props;
     if(products.length > 0){
       result = products.map((product,index)=>{
         return <Product 
           key={index}
           url = {product.images.downsized_medium.url}
           index={index}
+          action={action}
         />
       })
     }

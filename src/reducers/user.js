@@ -7,14 +7,10 @@ const user = (state = initalState,action)=>{
     switch (action.type){
         case Types.LOGIN_SUCCESS:
             state=action.payload
-            console.log(state)
             return state
         case Types.LOGIN_FAIL:
             state = action.payload
             return state;
-        // case Types.LOGOUT:
-        //     state = null
-        //     return state
         default : return state;
     }
 }

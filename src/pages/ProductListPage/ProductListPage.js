@@ -2,24 +2,27 @@ import { Component } from "react";
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import Product from './../../components/product/product'
+import * as Actions from './../../actions/index'
 class ProductListPage extends Component {
-    // componentDidMount(){
-    //     this.props.fetchOnProducts();
-    // }
+    componentDidMount(){
+        let {user,fetchOnFavoriteProducts} = this.props;
+        if(user) {
+            fetchOnFavoriteProducts({token:user.token});
+        }
+    }
     showProductFavorite=(urls)=>{
         var result = null;
-        if(urls.length >0){
+        if(urls && urls.length > 0){
             result = urls.map((url,key)=>{
-                return <Product key = {key} url = {url} />
+                return <Product key = {key} url = {url} action = "sub" />
             })
         }
         else result = <h2>Bộ sưu tập trống</h2>
         return result;
     }
     render(){
-        var {user} = this.props;
-        console.log(user)
-        if(user === null || typeof user !== 'object'){
+        let {user,favorite} = this.props;
+        if(!user){
             return <Redirect to ='/login'/>
         }
         return (
@@ -27,7 +30,7 @@ class ProductListPage extends Component {
                 <h1>
                     Bộ Sưu Tập
                 </h1>
-                {this.showProductFavorite(user.user.favorites)}
+                {this.showProductFavorite(favorite.favorites)}
             </div>
         );
     }
@@ -35,14 +38,15 @@ class ProductListPage extends Component {
 
 const mapStateToProps = state =>{
     return {
-        user :state.user
+        user :state.user,
+        favorite: state.favorite
     }
 }
-// const mapDispatchToProps = (dispatch,action)=>{
-//     return{
-//         fetchOnProducts : () =>{
-//             dispatch(actFetchProductsRequest())
-//         }
-//     }
-// }
-export default connect(mapStateToProps,null)(ProductListPage);
+const mapDispatchToProps = (dispatch,action)=>{
+    return{
+        fetchOnFavoriteProducts : (token) =>{
+            dispatch(Actions.onFetchFavoriteRequest(token))
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ProductListPage);

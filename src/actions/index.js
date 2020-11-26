@@ -28,7 +28,6 @@ export const onRegisterRequest=(user)=>{
     return (dispatch)=>{
         return callApi('users/register','POST',user)
         .then(res=>{
-            console.log(res);
             dispatch(onRegisterSuccess(res.data))
         })
         .catch(err=>{
@@ -54,19 +53,14 @@ export const onRegisterReset=(payload)=>{
         payload
     }
 }
-// export const onLogout=()=>{
-//     return{
-//         type:Types.LOGOUT
-//     }
-// }
 export const onPushLikeListRequest=(url)=>{
     return (dispatch)=>{
-        return callApi('users/user','PUT',url)
+        return callApi('users/user/add','POST',url)
         .then(res=>{
-            dispatch(onPushLikeListSuccess(url))
+            dispatch(onPushLikeListSuccess(res.data))
         })
         .catch(err=>{
-            dispatch(onPushLikeListFalse(false))
+            dispatch(onPushLikeListFail(false))
         })
     }
 }
@@ -76,9 +70,56 @@ export const onPushLikeListSuccess=(payload)=>{
         payload
     }
 }
-export const onPushLikeListFalse=(payload)=>{
+export const onPushLikeListFail=(payload)=>{
     return{
         type:Types.PUSH_GIF_ITEM_FAIL,
+        payload
+    }
+}
+
+export const onDeleteLikeListRequest=(url)=>{
+    return (dispatch)=>{
+        return callApi('users/user/delete','POST',url)
+        .then(res=>{
+            dispatch(onDeleteLikeListSuccess(res.data))
+        })
+        .catch(err=>{
+            dispatch(onDeleteLikeListFail(false))
+        })
+    }
+}
+export const onDeleteLikeListSuccess=(payload)=>{
+    return{
+        type:Types.DELETE_FAVORITE_SUCCESS,
+        payload
+    }
+}
+export const onDeleteLikeListFail=(payload)=>{
+    return{
+        type:Types.DELETE_FAVORITE_FAIL,
+        payload
+    }
+}
+export const onFetchFavoriteRequest=(token)=>{
+    return (dispatch)=>{
+        return callApi('users/user','POST',token)
+        .then(res=>{
+            dispatch(onFetchFavoriteSuccess(res.data))
+        })
+        .catch(err=>{
+            dispatch(onFetchFavoriteFail(false))
+        })
+    }
+}
+export const onFetchFavoriteSuccess=(payload)=>{
+    return{
+        type:Types.FETCH_FAVORITE_SUCCESS,
+        payload
+    }
+}
+export const onFetchFavoriteFail=(payload)=>{
+    return{
+        type:Types.FETCH_FAVORITE_FAIL,
         payload
     }
 }

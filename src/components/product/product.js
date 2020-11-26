@@ -5,13 +5,45 @@ import { connect } from "react-redux";
 import * as Actions from "./../../actions/index";
 class Product extends Component {
   onPushLikeList = (url) => {
-    console.log(url);
+    let {user} = this.props;
     this.props.onPushLikeList({
-      favorite: url,
+      token: user.token,
+      favorite: url
     });
   };
+  onDeleteLikeList=(url)=>{
+    let {user} = this.props;
+    this.props.onDeleteLikeList({
+      token: user.token,
+      favorite: url
+    })
+  }
+  showButton(url){
+    let {action} = this.props;
+    if(action==="add"){
+      return (<button
+      type="button"
+      className="btn btn-warning like-button btn-lg"
+      onClick={() => this.onPushLikeList(url)}
+    >
+      <FavoriteIcon 
+        fontSize="large"
+        className="favoriteIcon"
+        style={{ color: "red" }}
+      />
+    </button>)
+    }
+    else return(<button
+      type="button"
+      className="btn btn-warning dislike-button btn-lg"
+      onClick={() => this.onDeleteLikeList(url)}
+    >
+      <ClearIcon fontSize="large" />
+    </button>)
+  }
   render() {
     var { url } = this.props;
+    
     return (
       <article className="product demo col-3 col-s-6  mb-r mb-10">
         <div className=" card text-center card-cascade product-card ">
@@ -24,18 +56,7 @@ class Product extends Component {
             />
           </div>
           <div className="card-footer">
-            <button
-              type="button"
-              className="btn btn-warning like-button btn-lg"
-              onClick={() => this.onPushLikeList(url)}
-            >
-              <FavoriteIcon
-                fontSize="large"
-                className="favoriteIcon"
-                style={{ color: "red" }}
-              />
-              <ClearIcon fontSize="large" />
-            </button>
+            {this.showButton(url)}
           </div>
         </div>
       </article>
@@ -43,13 +64,18 @@ class Product extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    user:state.user
+  };
 };
 const mapDispatchToProps = (dispatch, action) => {
   return {
     onPushLikeList: (url) => {
       dispatch(Actions.onPushLikeListRequest(url));
     },
+    onDeleteLikeList:(url)=>{
+      dispatch(Actions.onDeleteLikeListRequest(url))
+    }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

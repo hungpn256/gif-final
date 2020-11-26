@@ -1,7 +1,7 @@
 import * as Types from '../constants/ActionTypes'
 var initalState = null
 
-const user = (state = initalState,action)=>{
+const register = (state = initalState,action)=>{
     switch (action.type){
         case Types.REGISTER_SUCCESS:
             state=action.payload
@@ -12,4 +12,4 @@ const user = (state = initalState,action)=>{
         default : return state;
     }
 }
-export default user;
+export default register;

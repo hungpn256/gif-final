@@ -67,8 +67,7 @@ const MenuLink =({label,to,activeOnlyWhenExact,className}) =>{
 class Menu extends Component {
     showMenu = (menus) =>{
       var {user} = this.props;
-      console.log(user)
-      if(user !==null && typeof user === 'object'){
+      if(user && menus.length === 4){
         menus.push({
           name:user.user.username,
           to : '/xyz',
@@ -77,8 +76,8 @@ class Menu extends Component {
           visitable:true
         })
         menus[3].visitable = true;
-        menus[2].visitable =false;
-        menus[1].visitable =false;
+        menus[2].visitable = false;
+        menus[1].visitable = false;
       }
       var visitLink = menus.filter((menu)=>{
         return menu.visitable === true
