@@ -34,7 +34,7 @@ class ProductActionPage extends Component {
         var {user} = this.props;
         if(user!==null){
             if(user.isAuthenticated){
-                return <Redirect to='/'/>
+                return <Redirect to='/gif-final/'/>
             }
         }
         var x = document.getElementsByClassName('login-status')[0];

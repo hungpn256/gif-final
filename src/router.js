@@ -6,22 +6,22 @@ import ProductListLoginAction from './pages/ProductActionPage/LoginPage'
 import ProductListRegisterAction from './pages/ProductActionPage/RegisterPage'
 const routes =[
     {
-        path:'/',
+        path:'/gif-final/',
         exact:true,
         main:()=> <HomePage/>
     },
     {
-        path:'/product-collection',
+        path:'/gif-final/product-collection',
         exact:false,
         main:()=> <ProductListPage/>
     },
     {
-        path:'/login',
+        path:'/gif-final/login',
         exact:false,
         main:()=> <ProductListLoginAction />
     },
     {
-        path:'/register',
+        path:'/gif-final/register',
         exact:false,
         main:()=> <ProductListRegisterAction/>
     },
