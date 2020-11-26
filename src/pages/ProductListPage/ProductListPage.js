@@ -23,7 +23,7 @@ class ProductListPage extends Component {
     render(){
         let {user,favorite} = this.props;
         if(!user){
-            return <Redirect to ='/login'/>
+            return <Redirect to ='/gif-final/login'/>
         }
         return (
             <div>

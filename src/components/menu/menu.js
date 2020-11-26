@@ -10,28 +10,28 @@ const menus = [
   // },
   {
     name:'Bộ sưu tập',
-    to : '/product-collection',
+    to : '/gif-final/product-collection',
     exact: false,
     className:'',
     visitable:true
   },
   {
     name:'Đăng nhập',
-    to : '/login',
+    to : '/gif-final/login',
     exact: false,
     className:'',
     visitable:true
   },
   {
     name:'Đăng ký',
-    to : '/register',
+    to : '/gif-final/register',
     exact: false,
     className:'',
     visitable:true
   },
   {
     name:'Log out',
-    to : '/logout',
+    to : '/gif-final/logout',
     exact: false,
     className:'',
     visitable:false
@@ -104,7 +104,7 @@ class Menu extends Component {
               <div className="menu-nav">
                 <Link 
                   className="navbar-brand ml-20" 
-                  to = '/'
+                  to = '/gif-final/'
                   exact
                   >GYPHY</Link>
                   <ul className="nav navbar-nav navbar-right">
