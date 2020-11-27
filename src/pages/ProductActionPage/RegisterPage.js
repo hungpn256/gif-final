@@ -35,7 +35,7 @@ class ProductActionPage extends Component {
         var {userRegister} = this.props;
         if(userRegister){
             this.props.onRegisterReset(false);
-            return <Redirect to='/login' />
+            return <Redirect to='gif-final/login' />
         }
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
