@@ -72,7 +72,7 @@ class Menu extends Component {
           name:user.user.username,
           to : '/xyz',
           exact: true,
-          className:'user',
+          className:'user noClick',
           visitable:true
         })
         menus[3].visitable = true;

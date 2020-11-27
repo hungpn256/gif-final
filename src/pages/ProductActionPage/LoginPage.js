@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {Redirect, Prompt} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import * as Actions from './../../actions/index'
 import {connect} from 'react-redux'
 class ProductActionPage extends Component {
@@ -39,9 +39,10 @@ class ProductActionPage extends Component {
         }
         var x = document.getElementsByClassName('login-status')[0];
         if(x){
-            if(user === false)
+            if(user === false){
                 x.style.display='block';
-            else x.style.display='none'
+
+            }
         }
         return (  
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -96,4 +97,4 @@ const mapDispatchToProps =(dispatch,action)=>{
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ProductActionPage);
+export default  connect(mapStateToProps,mapDispatchToProps)(ProductActionPage);
